@@ -26,7 +26,7 @@
         </mat-list-item>
         @for (item of menuItems; track item.id) {
           <mat-list-item>
-          @if(item.id==7){
+          @if(item.id==7 ){
             <a (click)="onMenuClick()"  >
               <mat-icon>{{ item.icon }}</mat-icon>
               <span>{{ item.label }}</span>
@@ -38,6 +38,12 @@
                 <span>{{ item.label }}</span>
               </a>
           }
+          @else if(item.id==5){
+            <a (click)="toggleMessageVisibility()">
+              <mat-icon  matBadge="15" aria-hidden="false" >{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </a>
+        }
           @else{
             <a [routerLink]="item.route">
               <mat-icon>{{ item.icon }}</mat-icon>
@@ -49,6 +55,11 @@
       </mat-list>
     </mat-sidenav>
     <mat-sidenav-content class="content">
+     @if(showMessage==true){
+        <app-message [partnerName]="'Luca'"  [partnerAvatar]= "'https://i.pravatar.cc/150?img=5'" ></app-message>
+      }
+      
+      
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

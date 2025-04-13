@@ -47,6 +47,10 @@ mat-icon{
 .bottom-nav{
     display: none;
 }
+mat-sidenav-content{
+    height: 800px;
+    min-height: 100%;
+}
 @media only screen and (max-width: 1400px) {
    span,h1{
     display: none;
@@ -68,8 +72,7 @@ mat-icon{
 
 @media only screen and (max-width: 800px) {
     .sidenav{
-    padding: 0;
-    width: 65px;
+   
     display: none;
    }
    .bottom-nav {

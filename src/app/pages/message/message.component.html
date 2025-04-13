@@ -1,0 +1,28 @@
+<mat-card class="wrapper">
+<mat-card class="container">
+
+  <mat-card class="chat-header">
+    <div class="header-content">
+      <img *ngIf="partnerAvatar" [src]="partnerAvatar" class="avatar" />
+      <h3>{{ partnerName }}</h3>
+    </div>
+  </mat-card>
+
+  <div class="message-list">
+    <mat-card *ngFor="let message of messages" [ngClass]="{'sent': message.fromMe, 'received': !message.fromMe}">
+      <div class="message-text">{{ message.text }}</div>
+      <div class="timestamp">{{ message.timestamp | date:'shortTime' }}</div>
+    </mat-card>
+  </div>
+
+
+  <mat-card class="message-form">
+    <form (ngSubmit)="sendMessage()" class="form-row">
+      <mat-form-field class="input-field" appearance="outline">
+        <input matInput [(ngModel)]="newMessage" name="message" placeholder="Írj üzenetet..." required />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Küldés</button>
+    </form>
+  </mat-card>
+</mat-card>
+</mat-card>

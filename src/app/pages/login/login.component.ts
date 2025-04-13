@@ -31,7 +31,8 @@ export class LoginComponent {
   isLoading: boolean = false;
   loginError: string = '';
   showLoginForm: boolean = true;
-
+  partnerName: string = 'Kiss Anna'; 
+  partnerAvatar: string = 'https://i.pravatar.cc/150?img=5'; 
   users: User[] = [];
 
   constructor() {
