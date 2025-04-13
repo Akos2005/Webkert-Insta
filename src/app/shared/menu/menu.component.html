@@ -1,0 +1,61 @@
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Delicious+Handrawn&family=Great+Vibes&family=Hurricane&display=swap" rel="stylesheet">
+</head>
+<body>
+  <mat-toolbar class="bottom-nav">
+    @for(item of menuItems; track item.id){
+      @if(item.id!=2 && item.id!=6){
+      <button mat-icon-button [routerLink]="item.route" routerLinkActive="active">
+        <mat-icon>{{item.icon}}</mat-icon>
+        </button>
+        }
+    } 
+    </mat-toolbar>
+<mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav mode="side" opened="true" class="sidenav">
+      <h1>Instagram</h1>
+      <mat-list>
+        <mat-list-item id="insta">
+          <a routerLink="/home">
+            <mat-icon>photo_camera</mat-icon>
+          </a>
+        </mat-list-item>
+        @for (item of menuItems; track item.id) {
+          <mat-list-item>
+          @if(item.id==7){
+            <a (click)="onMenuClick()"  >
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </a>
+          }
+          @else if(item.id==6){
+              <a [routerLink]="item.route">
+                <mat-icon  matBadge="6" aria-hidden="false" >{{ item.icon }}</mat-icon>
+                <span>{{ item.label }}</span>
+              </a>
+          }
+          @else{
+            <a [routerLink]="item.route">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </a>
+            }
+          </mat-list-item>
+        }
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+ 
+  @if(showModal==true){
+    <app-creating (closeModal)="onCloseModal()"></app-creating>
+  }
+  
+</body>
+  </html>

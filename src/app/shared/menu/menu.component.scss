@@ -1,0 +1,98 @@
+
+    
+.sidenav-container{
+    max-width: 100%;
+    padding: 0;
+}
+.sidenav{
+    position: fixed;
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 10px;
+    height: 100%;
+    max-width: 220px;
+    border-radius: 0;
+    border-right: 1px solid gray;
+}
+
+a, a:link{
+    text-decoration: none;
+    color: black;
+}
+.sidenav a{
+    display: flex;
+    align-items: center;
+}
+.content{
+    display: flex;
+    justify-content: center;
+}
+span{
+    margin-left: 10px;
+}
+mat-list{
+    padding: 0;
+}
+mat-list-item{
+    font-weight: 400;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+#insta{
+    display: none;
+}
+mat-icon{
+    margin: 3px;
+}
+.bottom-nav{
+    display: none;
+}
+@media only screen and (max-width: 1400px) {
+   span,h1{
+    display: none;
+   }
+   .sidenav{
+    padding: 0;
+    width: 65px;
+   }
+   mat-icon{
+    width: 100%;
+    text-align: center;
+   }
+  #insta{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+    .sidenav{
+    padding: 0;
+    width: 65px;
+    display: none;
+   }
+   .bottom-nav {
+       display: flex;
+       position: fixed;
+       z-index: 1000;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       justify-content: space-around;
+       align-items: center;
+       }
+       
+       :host {
+       display: block;
+       height: 56px;
+       }
+}
+
+h1{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-family: "Hurricane", cursive;
+    font-size: 40px;
+    font-weight: 200;
+}

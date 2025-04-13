@@ -1,0 +1,35 @@
+<mat-card class="wrapper">
+    <mat-card class="content">
+      <mat-card appearance="outlined"> 
+        <h1>Poszt készítése</h1>
+        <mat-card-content>
+          <form>
+            <mat-form-field>
+              <mat-label>Felhasználónév:</mat-label>
+              <input matInput type="text" [(ngModel)]="postData.username" name="username" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Kép url:</mat-label>
+              <input matInput type="text" [(ngModel)]="postData.content" name="content" required>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Leírás:</mat-label>
+              <input matInput type="text" [(ngModel)]="postData.description" name="description">
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Dátum:</mat-label>
+              <input matInput type="text" [(ngModel)]="postData.timestamp" name="timestamp" disabled>
+            </mat-form-field>
+          </form>
+  
+          <button mat-raised-button color="primary" (click)="submitPost()" [disabled]="!postData.username || !postData.content">
+            Mentés
+          </button>
+          <button mat-button (click)="closeModal.emit()">Bezár</button>
+        </mat-card-content>
+      </mat-card>
+    </mat-card>
+  </mat-card>

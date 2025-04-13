@@ -1,0 +1,38 @@
+<mat-card class="wrapper">
+    <mat-card class="content">
+      <mat-card>
+        <p id="fy"><b>Neked</b> Követed</p>
+        
+      
+        @for (item of posts.list; track item.username) {
+          <mat-card class="bejegyzesek">
+            <div class="fejlec">
+              <p><mat-icon>person</mat-icon></p>
+              <p>{{item.username}}</p>
+            </div>
+            <div>
+              <img [src]="item.content" alt="Post image">
+            </div>
+            <div class="action-icons">
+              <mat-icon 
+                [ngClass]="{'highlighted': item.likes > 100}" 
+                [ngStyle]="{'color': item.likes > 100 ? 'red' : 'black'}">
+                favorite_border
+              </mat-icon>
+              <mat-icon>comment</mat-icon>
+              <mat-icon>send</mat-icon>
+              <mat-icon class="vege">bookmark_border</mat-icon>
+            </div>
+            <div>
+              <p>{{ item.likes | likesFormat }} kedvelés</p>
+            </div>
+            <div>
+              <p><span>{{item.username}}</span> {{item.description}}</p>
+            </div>
+          </mat-card>
+        }
+      
+      </mat-card>
+    </mat-card>
+  </mat-card>
+  
